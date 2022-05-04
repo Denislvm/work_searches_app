@@ -1,0 +1,8 @@
+{% extends 'searcherapp/base.html' %}
+
+{% block content %}
+<p><h1>Startup - {{startup_post.title}}</h1>
+
+{{ startup_post.content|linebreaks }}
+<h5>E-mail: {{startup_post.mail_address}}</h5>
+{% endblock %}

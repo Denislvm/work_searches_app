@@ -1,0 +1,13 @@
+{% extends 'searcherapp/base.html' %}
+
+{% block content %}
+<h1>Позиция - {{ post.title }}</h1>
+<h4>О компании: {{ post.about_company }}</h4>
+<h4>Необходимые навыки для трудоустроиства:</h4> {{ post.content }}
+
+{{ post.content|linebreaks }}
+<h4>Контактные данные компании</h4>
+<h5>Сайт компании: {{post.site_company}}</h5>
+<h5>Сайт компании на dou: {{post.site_in_dou}}</h5>
+<h5>E-mail: {{post.mail_address}}</h5>
+{% endblock %}
