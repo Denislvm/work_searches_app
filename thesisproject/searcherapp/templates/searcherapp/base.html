@@ -7,7 +7,7 @@
 	<title>{{title}}</title>
 	<link type="text/css" href="{% static 'searcherapp/css/style.css' %}" rel="stylesheet" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="{% static 'searcherapp/images/main.ico' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'searcherapp/images/racket_gf.gif' %}" type="image/x-icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -53,8 +53,9 @@
 {% endfor %}
 
 		<li class="share">
-		<p>Наш телеграм канал с последними изменениями</p>
-		<a class="share-yt" href="https://www.youtube.com/channel/UClJzWfGWuGJL2t-3dYKcHTA/playlists" target="_blank" rel="nofollow"></a>
+		<p>Данный проект размещен на GitHub, к которому вы можете перейти по ссылке ниже</p>
+		<a class="share-yt" href="https://github.com/Denislvm/work_searches_app" target="_blank" rel="nofollow"></a>
+		<a class="twitter" href="https://twitter.com/denislvm69" target="_blank" rel="nofollow"></a>
 		</li>
 	</ul>
 </td>
@@ -68,36 +69,9 @@
 	<div class="content-text">
 {% block content %}
 {% endblock %}
-{% if page_obj.has_other_pages %}
-<nav class="list-pages">
-	<ul>
 
-{% if page_obj.has_previous %}
-<li class="page-num">
-	<a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
-</li>
-{% endif %}
-		{% for p in paginator.page_range %}
-		{% if page_obj.number == p %}
-		<li class="page-num page-num-selected">{{ p }}</li>
-		{% else %}
 
-		<li class="page-num">
-			<a href="?page={{ p }}">{{ p }}</a>
-		</li>
-		{% endif %}
-		{% endfor %}
 
-		{% if page_obj.has_next %}
-<li class="page-num">
-	<a href="?page={{ page_obj.next_page_number }}">&gt;</a>
-</li>
-{% endif %}
-
-	</ul>
-</nav>
-		{% endif %}
-	</div>
 <!-- Конец блока контента -->
 
 </td></tr></table>

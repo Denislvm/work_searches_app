@@ -30,7 +30,7 @@ class ContactFormView(DataMixin, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Главная страница")
+        c_def = self.get_user_context(title="Контакты")
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
@@ -38,12 +38,7 @@ class ContactFormView(DataMixin, FormView):
         return redirect('home')
 
 
-# def about(request, **kwargs):
-#     context = kwargs
-#     cats = Category.objects.all()
-#
-#     context['cats'] = cats
-#     return render(request, 'searcherapp/about.html', {'cats': cats, 'menu': menu, 'title': 'О сайте', })
+
 
 class About(DataMixin, ListView):
     model = Startup
@@ -104,19 +99,6 @@ class AddPage(DataMixin, LoginRequiredMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-# def add_page(request):
-#     if request.method == 'POST':
-#         form = AddPostForm(request.POST)
-#         if form.is_valid():
-#             try:
-#                 Vacancy.objects.create(**form.cleaned_data)
-#                 return redirect('home')
-#             except:
-#                 form.add_error(None, 'Ошибка добавления поста')
-#     else:
-#         form = AddPostForm()
-#
-#     return render(request, 'searcherapp/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление новых записей'})
 
 class ShowPost(DataMixin, DetailView):
     model = Vacancy
@@ -128,17 +110,6 @@ class ShowPost(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
-
-# def show_post(request, post_slug):
-#     post = get_object_or_404(Vacancy, slug=post_slug)
-#
-#     context = {
-#         'post': post,
-#         'menu': menu,
-#         'title': 'Отображение по выбранной категории',
-#         'cat_selected': post.cat_id,
-#     }
-#     return render(request, 'searcherapp/post.html', context=context)
 
 
 class VacancyCategory(DataMixin, ListView):
@@ -156,16 +127,6 @@ class VacancyCategory(DataMixin, ListView):
                                       cat_selected=context['posts'][0].cat_id)
         return dict(list(context.items()) + list(c_def.items()))
 
-# def category(request, cat_id):
-#     posts = Vacancy.objects.filter(cat_id=cat_id)
-#
-#     context = {
-#         'posts': posts,
-#         'menu': menu,
-#         'title': 'Отображение по выбранной категории',
-#         'cat_selected': cat_id,
-#     }
-#     return render(request, 'searcherapp/index.html', context=context)
 
 class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
