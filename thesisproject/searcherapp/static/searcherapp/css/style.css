@@ -357,7 +357,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 .highlight .block p { margin: 0; }
 
 .quote {
-	background: url('../images/blockquote.png') no-repeat 0 10px;
+	background: url() no-repeat 0 10px;
 	padding: 5px 5px 5px 70px;
 	font-family: Sans-serif, Arial, Tahoma;
 	font-style: italic;
