@@ -1,1 +1,6 @@
 .idea
+thesisproject/staticfiles
+db.json
+Procfile
+requirements.txt
+runtime.txt
